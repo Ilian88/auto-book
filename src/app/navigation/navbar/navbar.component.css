@@ -1,0 +1,28 @@
+nav {
+    background-color: rgb(193, 193, 193);
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+}
+
+.homeBtnContainer {
+    margin-left: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+.authButtons {
+    flex-wrap: wrap;
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+app-nav-buttons {
+    padding: 3px;
+}
