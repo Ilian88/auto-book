@@ -1,11 +1,12 @@
 <nav>
     <header> 
         <div class= "homeBtnContainer">
-            <app-nav-buttons name="{{homeButton}}"></app-nav-buttons>
+            <app-nav-buttons routerLink="/" name="{{homeButton}}"></app-nav-buttons>
         </div>
         <ul class="authButtons">
-            <app-nav-buttons name="{{registerButton}}"></app-nav-buttons>
-            <app-nav-buttons name="{{loginButton}}"></app-nav-buttons>
+            <!-- <app-nav-buttons [route]="'register'" name="{{registerButton}}"></app-nav-buttons> -->
+            <app-nav-buttons routerLink="register" name="{{registerButton}}"></app-nav-buttons>
+            <app-nav-buttons routerLink="login" name="{{loginButton}}"></app-nav-buttons>
             <app-nav-buttons name="{{logoutButton}}"></app-nav-buttons>
         </ul>
     </header>

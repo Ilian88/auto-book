@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './home/about/about.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './shared/register/register.component';
+import { LoginComponent } from './shared/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,18 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     NavButtonsComponent,
     FooterComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     MatButtonModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent}
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent }
     ]),
-    NoopAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,60 @@
+main {
+    border: 1px solid grey;
+    width: 80%;
+    margin: 2rem auto;
+    box-shadow: 7px 10px grey;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+label {
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+    border-radius: 10px;
+    /* min-width: 720px; */
+    width: 35rem;
+    height: 1.5rem;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.input {
+    width: 100%;
+    border-radius: 100px;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 0.7fr 0.7fr 0.7fr 0.7fr;
+    margin-top: 3rem;
+}
+
+.submitBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+button {
+    background-color: rgba(63, 156, 237, 0.863);
+    padding: 0.4rem 6rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(92, 176, 249, 0.863);
+    color: white;
+}
