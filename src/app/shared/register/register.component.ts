@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors  } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { IUser } from 'src/app/models/IUser';
+import {HttpService} from '../../services/http.service'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,16 +11,18 @@ import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, Valid
 })
 export class RegisterComponent implements OnInit {
   
-  constructor() { }
+  constructor(private authService: HttpService, private router: Router) { }
 
   registerGroup: any;
+  error: any;
 
   ngOnInit(): void {
       this.registerGroup = new FormGroup({
       username: new FormControl('', [Validators.minLength(4), Validators.required]),
       email: new FormControl('', [Validators.email, Validators.minLength(5)]),
       password: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      repeatPass: new FormControl('', [Validators.required, this.validatePasswordsMatch.bind(this)])
+      repeatPass: new FormControl('', [Validators.required, this.validatePasswordsMatch.bind(this)]),
+      gender: new FormControl('', [Validators.required])
     });
   }
 
@@ -32,10 +36,17 @@ export class RegisterComponent implements OnInit {
   }
 
   log(registerForm: FormGroup) {
-    console.log(registerForm);
+    console.log(this.error);
   }
 
   registerUser() {
-
+    this.authService.register(this.registerGroup.value)
+        .subscribe({
+          next: () => this.router.navigate(['/login']),
+          error: (err) => {
+            this.error = err;
+            this.registerGroup.reset();
+          }
+        });
   }
 }

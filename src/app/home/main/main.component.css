@@ -1,0 +1,21 @@
+main {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-weight: bold;
+}
+
+.card-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+    color: blue;
+}

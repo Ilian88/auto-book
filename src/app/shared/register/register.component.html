@@ -1,6 +1,6 @@
 <main>
     <h2>Register</h2>
-    <form (change)="log(registerGroup)" type="submit" class="container" [formGroup]="registerGroup" #f="ngForm"> <!╌ add formGroup ╌>  
+    <form (ngSubmit)="registerUser()" type="submit" class="container" [formGroup]="registerGroup" #f="ngForm"> <!╌ add formGroup ╌>  
         <div class="input">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" formControlName="username"/>
@@ -27,24 +27,22 @@
         </div>
         <div class="gender input">
             <label>
-                <input type="radio" name="gender" value="male" [checked]="true"/>
+                <input formControlName="gender" type="radio" name="gender" value="MALE" [checked]="true"/>
                 Male
             </label>
             <label>
-                <input type="radio" name="gender" value="female"/>
+                <input formControlName="gender" type="radio" name="gender" value="FEMALE"/>
                 Female
             </label>
         </div>
         <div class="submitBtn">
             <!-- <button [disabled]="!f.valid">Sign up</button> -->
-            <button [disabled]="registerGroup.status === 'INVALID'">Sign up</button>
+            <button type="submit" [disabled]="registerGroup.status === 'INVALID'">Sign up</button>
         </div>
     </form>
     <ng-container >
-        <div class="notification" *ngIf="false">
-            Some alert message Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-             Ipsa recusandae deserunt dolor. Obcaecati consectetur aperiam, sint at quasi eveniet quidem libero minima, ut, optio nesciunt.
-              Distinctio sequi sunt possimus incidunt.
+        <div class="notification" *ngIf="false"> -- to fix this
+            {{error.message}}
         </div>
     </ng-container>
 </main>

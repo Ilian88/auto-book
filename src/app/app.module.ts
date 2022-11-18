@@ -14,6 +14,10 @@ import { LoginComponent } from './shared/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainComponent } from './home/main/main.component';
+import { SingleCardComponent } from './shared/card/single-card/single-card.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,21 +28,25 @@ import { CommonModule } from '@angular/common';
     AboutComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainComponent,
+    SingleCardComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     MatButtonModule,
+    MatCardModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: MainComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent }
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 300px;
+    margin-bottom: 8px;
+  }
+
+.mat-card-actions :first-child {
+    background-color: greenyellow;
+}
+
+.mat-card-actions :nth-child(2) {
+    background-color: red;
+}
