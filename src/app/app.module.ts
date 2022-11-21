@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './home/main/main.component';
 import { SingleCardComponent } from './shared/card/single-card/single-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from './reducers/login.reducer';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,7 @@ import { MatCardModule } from '@angular/material/card';
       { path: 'login', component: LoginComponent }
     ]),
     BrowserAnimationsModule,
+    StoreModule.forRoot(loginReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,17 +1,24 @@
 <main>
     <h2>Login</h2>
-    <form [formGroup]="loginGroup" type="submit" class="container">
+    <form [formGroup]="loginGroup" type="submit" (ngSubmit)="loginUser()" class="container">
         <div class="input">
             <label for="username">Username</label>
             <input type="text" id="username" formControlName="username"/>
+            <small *ngIf="!loginGroup.get('username')?.valid && loginGroup.get('username')?.touched">
+                Username must be at least 4 symbols!
+            </small>
         </div>
+        
         <div class="input">
             <label for="password">Password</label>
             <input type="text" id="password" formControlName="password"/>
+            <small *ngIf="!loginGroup.get('password')?.valid && loginGroup.get('password')?.touched">
+                Password must be at least 4 symbols!
+            </small>
         </div>
-        
+             
         <div class="submitBtn">
-            <button>Sign in</button>
+            <button [disabled]="this.loginGroup.status === 'INVALID'">Sign in</button>
         </div>
     </form>
 </main>

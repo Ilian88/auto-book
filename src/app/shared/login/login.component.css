@@ -3,11 +3,12 @@ main {
     width: 80%;
     margin: 2rem auto;
     box-shadow: 7px 10px grey;
+    box-sizing: border-box;
 }
 
 h2 {
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 label {
@@ -34,7 +35,7 @@ input {
     display: grid;
     justify-content: center;
     grid-template-rows: 0.7fr 0.7fr 0.7fr 0.7fr;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .submitBtn {
@@ -53,7 +54,7 @@ button {
     border-radius: 10px;
 }
 
-button:hover {
+button:not([disabled]):hover {
     cursor: pointer;
     background-color: rgba(92, 176, 249, 0.863);
     color: white;
