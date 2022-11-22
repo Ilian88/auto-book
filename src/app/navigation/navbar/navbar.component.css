@@ -5,6 +5,7 @@ nav {
 
 header {
     display: flex;
+    padding-right: 2rem;
     justify-content: space-between;
     border: 1px solid;
 }
@@ -18,11 +19,11 @@ header {
 
 .authButtons {
     flex-wrap: wrap;
-    width: 30%;
     display: flex;
-    justify-content: space-evenly;
+    gap: 2rem;
+    justify-content: flex-end;
 }
 
 app-nav-buttons {
-    padding: 3px;
+    margin-right: 1rem;
 }

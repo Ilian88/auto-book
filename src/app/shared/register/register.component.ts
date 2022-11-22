@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors  } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors  } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IUser } from 'src/app/models/IUser';
+import { IUser } from '../../models/IUser';
 import {HttpService} from '../../services/http.service'
 @Component({
   selector: 'app-register',
@@ -17,12 +17,12 @@ export class RegisterComponent implements OnInit {
   error: any;
 
   ngOnInit(): void {
-      this.registerGroup = new FormGroup({
-      username: new FormControl('', [Validators.minLength(4), Validators.required]),
-      email: new FormControl('', [Validators.email, Validators.minLength(5)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      repeatPass: new FormControl('', [Validators.required, this.validatePasswordsMatch.bind(this)]),
-      gender: new FormControl('', [Validators.required])
+      this.registerGroup = new UntypedFormGroup({
+      username: new UntypedFormControl('', [Validators.minLength(4), Validators.required]),
+      email: new UntypedFormControl('', [Validators.email, Validators.minLength(5)]),
+      password: new UntypedFormControl('', [Validators.required, Validators.minLength(4)]),
+      repeatPass: new UntypedFormControl('', [Validators.required, this.validatePasswordsMatch.bind(this)]),
+      gender: new UntypedFormControl('', [Validators.required])
     });
   }
 
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  log(registerForm: FormGroup) {
+  log(registerForm: UntypedFormGroup) {
     console.log(this.error);
   }
 

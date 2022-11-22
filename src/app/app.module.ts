@@ -19,8 +19,10 @@ import { MainComponent } from './home/main/main.component';
 import { SingleCardComponent } from './shared/card/single-card/single-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { StoreModule } from '@ngrx/store';
-import { loginReducer } from './reducers/login.reducer';
+import { authReducer } from './reducers/auth.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +32,8 @@ import { environment } from '../environments/environment';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    LoginComponent,
     RegisterComponent,
+    LoginComponent,
     MainComponent,
     SingleCardComponent
   ],
@@ -50,7 +52,13 @@ import { environment } from '../environments/environment';
       { path: 'login', component: LoginComponent }
     ]),
     BrowserAnimationsModule,
-    StoreModule.forRoot(loginReducer)
+    StoreModule.forRoot({login: authReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

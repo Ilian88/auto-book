@@ -104,7 +104,6 @@
       }
     }
   },
-  "defaultProject": "auto-book",
   "cli": {
     "schematicCollections": [
       "@ngrx/schematics"

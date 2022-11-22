@@ -1,10 +1,5 @@
 import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
   createReducer,
-  createSelector,
-  MetaReducer,
   on
 } from '@ngrx/store';
 import { IUser } from '../models/IUser';
@@ -18,12 +13,16 @@ export const initialState: UserState = {
     user: undefined
 }
 
-export const loginReducer = createReducer(
+export const authReducer = createReducer(
     initialState,
-    on(AuthActions.login, (state, action) => {
+    on(AuthActions.login, (state, {user}) => {
         return {
             ...state,
-            user: action
+            user
         }
+    }),
+    on(AuthActions.logout, (_state, _action)=> {
+        return initialState
     })
 );
+

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { UserState } from 'src/app/reducers/login.reducer';
-import { HttpService } from 'src/app/services/http.service';
+import { UserState } from '../../reducers/auth.reducer';
+import { HttpService } from '../../services/http.service';
 import * as AuthActions from '../../actions/auth.actions'
+import { IUser } from 'app/models/IUser';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,9 @@ export class LoginComponent implements OnInit {
   loginGroup: any;
 
   ngOnInit(): void {
-    this.loginGroup = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(4)])
+    this.loginGroup = new UntypedFormGroup({
+      username: new UntypedFormControl('', [Validators.required, Validators.minLength(4)]),
+      password: new UntypedFormControl('', [Validators.required, Validators.minLength(4)])
     })
   }
   
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.http.login(this.loginGroup.get('username').value, this.loginGroup.get('password').value)
     .subscribe({
       next: (user) => { 
-        this.store.dispatch(AuthActions.login(user))
+        this.store.dispatch(AuthActions.login({user: {...user, password: this.loginGroup.get('password').value}}))
         this.router.navigate(['/'])
       },
       error: (err) => {
