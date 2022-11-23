@@ -22,6 +22,9 @@ import { StoreModule } from '@ngrx/store';
 import { authReducer } from './reducers/auth.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreateDialogueComponent } from './shared/dialog/create-dialogue/create-dialogue.component';
+import {MatInputModule} from '@angular/material/input'; 
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { environment } from '../environments/environment';
     RegisterComponent,
     LoginComponent,
     MainComponent,
-    SingleCardComponent
+    SingleCardComponent,
+    CreateDialogueComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +50,8 @@ import { environment } from '../environments/environment';
     FormsModule,
     BrowserModule,
     HttpClientModule,
+    MatDialogModule,
+    MatInputModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },

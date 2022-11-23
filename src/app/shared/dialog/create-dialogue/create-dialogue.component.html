@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Create you own card</h2>
+<mat-dialog-content class="mat-typography">
+    <form class="create-form" [formGroup]="createCardFormGroup">
+        <table class="input-full-width" cellspacing="0"><tr>
+            <td><mat-form-field>
+              <mat-label>Make</mat-label>
+              <input matInput formControlName="make">
+              <mat-error *ngIf="createCardFormGroup.get('make').status === 'INVALID'">Make must be between 1 and 20 symbols</mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field>
+              <mat-label>Model</mat-label>
+              <input matInput formControlName="model">
+              <mat-error *ngIf="createCardFormGroup.get('model').status === 'INVALID'">Model must be between 1 and 20 symbols</mat-error>
+            </mat-form-field></td>
+          </tr></table>
+          <table class="input-full-width" cellspacing="0"><tr>
+            <td><mat-form-field>
+              <mat-label>Engine displacement and type</mat-label>
+              <input matInput formControlName="engine">
+              <mat-error *ngIf="createCardFormGroup.get('engine').status === 'INVALID'">Engine must be between 1 and 15 symbols</mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field>
+              <mat-label>Fuel consumption</mat-label>
+              <input matInput formControlName="fuelConsumtpion">
+              <mat-error *ngIf="createCardFormGroup.get('fuelConsumtpion').status === 'INVALID'">Fuel Consumtpion must be between 1 and 15 symbols</mat-error>
+            </mat-form-field></td>
+          </tr></table>
+          <mat-form-field class="input-full-width">
+            <mat-label>Picture URL</mat-label>
+            <input matInput formControlName="picURL" #message maxlength="100" placeholder="https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fbe%2FMercedes_CLK_front_20071029.jpg%2F275px-Mercedes_CLK_front_20071029.jpg&imgrefurl=https%3A%2F%2Fbg.wikipedia.org%2Fwiki%2F%25D0%259C%25D0%25B5%25D1%2580%25D1%2586%25D0%25B5%25D0%25B4%25D0%25B5%25D1%2581-%25D0%2591%25D0%25B5%25D0%25BD%25D1%2586_CLK-%25D0%25BA%25D0%25BB%25D0%25B0%25D1%2581%25D0%25B0&tbnid=sSDEJzbXIyZh9M&vet=12ahUKEwiDup3slsT7AhUQ4bsIHRCcDQ8QMygCegUIARC9AQ..i&docid=et1ve-Hx5yUScM&w=275&h=155&q=mercedes%20clk&ved=2ahUKEwiDup3slsT7AhUQ4bsIHRCcDQ8QMygCegUIARC9AQ">
+            <mat-hint align="end">{{message.value.length}} / 100</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <mat-label>Enter you comments and opinion on the model, weak places, cost per year</mat-label>
+            <textarea formControlName="description" matInput placeholder="Start typing..."></textarea>
+            <mat-error *ngIf="createCardFormGroup.get('description').status === 'INVALID'">Text must be between no more than 300 symbols</mat-error>
+          </mat-form-field>
+      </form>      
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="onSubmit()" [mat-dialog-close]="createCardFormGroup.status === 'VALID'" [disabled]="createCardFormGroup.status === 'INVALID'">Create</button>
+</mat-dialog-actions>

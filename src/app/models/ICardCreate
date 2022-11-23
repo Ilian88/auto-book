@@ -1,0 +1,8 @@
+export interface ICreateCard {
+    make: string,
+    model: string,
+    engine: string,
+    fuelConsumtpion: string,
+    picURL: string,
+    description: string
+}

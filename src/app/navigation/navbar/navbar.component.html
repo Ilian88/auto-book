@@ -2,6 +2,7 @@
     <header> 
         <div class= "homeBtnContainer">
             <app-nav-buttons routerLink="/" name="{{homeButton}}"></app-nav-buttons>
+            <button [disabled]="!(currentUser$ | async)?.username" mat-button (click)="openDialog()">Create</button>
         </div>
         <div *ngIf="!!(currentUser$ | async)?.username" class="homeBtnContainer">
             Welcome: <span> &nbsp; {{(currentUser$ | async)?.email}}</span>

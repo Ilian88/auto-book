@@ -1,0 +1,17 @@
+.craete-form {
+    min-width: 150px;
+    width: 100%;
+  }
+
+  .input-full-width {
+    width: 100%;
+  }
+
+  input :not(.input-full-width) {
+    width: 40%
+  }
+
+  mat-error {
+    font-weight: bold;
+    font-style: italic;
+  }
