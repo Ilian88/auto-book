@@ -1,4 +1,6 @@
+import { useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-single-card',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-card.component.css']
 })
 export class SingleCardComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

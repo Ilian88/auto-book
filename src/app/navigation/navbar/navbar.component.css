@@ -14,7 +14,7 @@ header {
     margin-left: 2rem;
     display: flex;
     justify-content: flex-start;
-    align-self: center;
+    align-items: center;
 }
 
 .authButtons {
@@ -26,4 +26,8 @@ header {
 
 app-nav-buttons {
     margin-right: 1rem;
+}
+
+button {
+    color: rgba(233, 6, 38, 0.77);
 }

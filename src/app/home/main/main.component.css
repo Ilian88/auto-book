@@ -1,5 +1,6 @@
 main {
     width: 100%;
+    overflow: scroll;
 }
 
 h1 {
@@ -10,8 +11,9 @@ h1 {
 }
 
 .card-container {
-    display: grid;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     grid-template-columns: repeat(3, 1fr);
     
 }

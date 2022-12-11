@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ICar } from 'app/models/ICar';
 import { Observable } from 'rxjs';
 import { IUser } from '../models/IUser';
-import { AUTH_ENDPOINTS } from './endpoints.type';
+import { AUTH_ENDPOINTS, CARDS_ENDPOINTS } from './endpoints.type';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class HttpService {
 
   login(username: string, password: string): Observable<IUser> {
     return this.http.post<IUser>(AUTH_ENDPOINTS.login, {username, password});
+  }
+
+  getAllCars(): Observable<ICar[]> {
+    return this.http.get<ICar[]>(CARDS_ENDPOINTS.getAll);
   }
 }

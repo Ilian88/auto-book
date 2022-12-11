@@ -5,7 +5,6 @@ import { Store } from '@ngrx/store';
 import { UserState } from '../../reducers/auth.reducer';
 import { HttpService } from '../../services/http.service';
 import * as AuthActions from '../../actions/auth.actions'
-import { IUser } from 'app/models/IUser';
 
 @Component({
   selector: 'app-login',

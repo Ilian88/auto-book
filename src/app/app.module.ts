@@ -12,7 +12,7 @@ import { AboutComponent } from './home/about/about.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { LoginComponent } from './shared/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './home/main/main.component';
@@ -25,6 +25,10 @@ import { environment } from '../environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateDialogueComponent } from './shared/dialog/create-dialogue/create-dialogue.component';
 import {MatInputModule} from '@angular/material/input'; 
+import { EffectsModule } from '@ngrx/effects';
+import { CarsEffects } from './effects/cars.effects';
+import { carsReducer } from './reducers/cars.reducer';
+import { AuthInterceptor } from './interceptor/auth-interceptor';
 
 
 @NgModule({
@@ -53,12 +57,13 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     MatInputModule,
     RouterModule.forRoot([
-      { path: '', component: MainComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent }
     ]),
+    EffectsModule.forRoot([CarsEffects]),
     BrowserAnimationsModule,
-    StoreModule.forRoot({login: authReducer}),
+    StoreModule.forRoot({login: authReducer, carsReducer: carsReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
@@ -66,7 +71,9 @@ import {MatInputModule} from '@angular/material/input';
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     })
   ],
-  providers: [],
+  providers: [{  
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true 
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

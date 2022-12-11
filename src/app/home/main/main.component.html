@@ -1,10 +1,7 @@
 <main>
     <h1>Browse through our cards</h1>
     <div class="card-container">
-        <app-single-card></app-single-card>
-        <app-single-card></app-single-card>
-        <app-single-card></app-single-card>
-        <app-single-card></app-single-card>
-        <app-single-card></app-single-card>
+        <app-single-card *ngFor="let car of cars;"></app-single-card>
+        
     </div>
 </main>

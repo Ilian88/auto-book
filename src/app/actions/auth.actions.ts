@@ -9,5 +9,5 @@ export const login = createAction(
 );
 
 export const logout = createAction(
-    LOGOUT_ACTION
+    LOGOUT_ACTION,
 );
