@@ -29,6 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CarsEffects } from './effects/cars.effects';
 import { carsReducer } from './reducers/cars.reducer';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
+import { DetailsComponent } from './details/details/details.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AuthInterceptor } from './interceptor/auth-interceptor';
     LoginComponent,
     MainComponent,
     SingleCardComponent,
-    CreateDialogueComponent
+    CreateDialogueComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
@@ -57,9 +59,10 @@ import { AuthInterceptor } from './interceptor/auth-interceptor';
     MatDialogModule,
     MatInputModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'cars/:id', component: DetailsComponent}
     ]),
     EffectsModule.forRoot([CarsEffects]),
     BrowserAnimationsModule,

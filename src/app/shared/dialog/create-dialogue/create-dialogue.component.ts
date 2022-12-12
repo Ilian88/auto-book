@@ -26,7 +26,6 @@ export class CreateDialogueComponent implements OnInit {
 
   onSubmit() {
       console.log(this.createCardFormGroup);
-
   }
 
 }

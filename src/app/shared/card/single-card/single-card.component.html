@@ -1,14 +1,20 @@
-<mat-card class="example-card">
+<mat-card class="single-card">
     <mat-card-header>
       <mat-card-title-group>
+        <!-- <mat-card-title>Make: {{car?.make}}</mat-card-title>
+        <mat-card-subtitle>Model: {{car?.model}}</mat-card-subtitle>
+        <mat-card-subtitle>Owner: {{car?.owner}}</mat-card-subtitle>
+        <img mat-card-sm-image src={{car?.picURL}} > -->
+        <input type="hidden" name="id" value="1">
         <mat-card-title>Make: Mercedes</mat-card-title>
-        <mat-card-subtitle>Model: CLK270 cdi</mat-card-subtitle>
-        <mat-card-subtitle>Owner: Igor</mat-card-subtitle>
-        <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+        <mat-card-subtitle>Model: CLK 270cdi</mat-card-subtitle>
+        <mat-card-subtitle>Owner: Az sam</mat-card-subtitle>
+        <img mat-card-sm-image src= "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbg.wikipedia.org%2Fwiki%2F%25D0%259C%25D0%25B5%25D1%2580%25D1%2586%25D0%25B5%25D0%25B4%25D0%25B5%25D1%2581-%25D0%2591%25D0%25B5%25D0%25BD%25D1%2586_CLK-%25D0%25BA%25D0%25BB%25D0%25B0%25D1%2581%25D0%25B0&psig=AOvVaw1fm7kLyZaLNaDGbeyoLU-o&ust=1670848601341000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKiX16DK8fsCFQAAAAAdAAAAABAE" >
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-actions>
-        <button mat-button>EDIT</button>
-        <button mat-button>DELETE</button>
+        <button mat-button [routerLink]="['cars', 1]">DETAILS</button>
+        <!-- <button mat-button>EDIT</button>
+        <button mat-button>DELETE</button> -->
     </mat-card-actions>
   </mat-card>

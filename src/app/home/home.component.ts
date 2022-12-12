@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { carsRequest } from 'app/actions/cars.actions';
 import { UserState } from 'app/reducers/auth.reducer';
 import { loggedUser } from 'app/selectors/login.selector';
 import { Observable } from 'rxjs';

@@ -7,6 +7,6 @@ export const AUTH_ENDPOINTS = {
     login: baseUrl + '/users/login'
 }
 
-export const CARDS_ENDPOINTS = {
+export const CARS_ENDPOINTS = {
     getAll: baseUrl + '/cars'
 }

@@ -1,0 +1,33 @@
+.single-card {
+    max-width: 700px;
+    height: 70vh;
+    overflow: scroll;
+}
+
+.container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+mat-card { 
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.mat-card-header {
+    flex: 1
+}
+
+.mat-card-image {
+    width: 20rem;
+    height: 15rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    flex: 1 
+}
+
+.mat-card-actions {
+    margin-bottom: 2px;
+}

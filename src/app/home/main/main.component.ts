@@ -13,12 +13,14 @@ import { getAllCars } from 'app/selectors/car.selector';
 export class MainComponent implements OnInit {
   cars: ICar[] = [];
 
-  constructor(private store: Store<CarState>) { }
+  constructor(private store: Store<CarState>) { 
+    
+  }
 
   ngOnInit(): void {
-      this.store.dispatch(carsRequest());
-
-      this.store.select(getAllCars).subscribe(cars => this.cars = cars);
+    this.store.dispatch(carsRequest());
+    
+    this.store.select(getAllCars).subscribe(cars => this.cars = cars);
   }
 
 }
