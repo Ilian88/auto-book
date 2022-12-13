@@ -25,7 +25,7 @@ export class HttpService {
   }
 
   getCarById(id: string): Observable<ICar> {
-    return this.http.get<ICar>(CARS_ENDPOINTS + '/' + id)
+    return this.http.get<ICar>(CARS_ENDPOINTS.getAll + '/' + id)
   }
 
 }

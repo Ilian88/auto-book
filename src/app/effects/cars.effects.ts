@@ -8,17 +8,17 @@ import { map, mergeMap, switchMap, tap } from "rxjs";
 @Injectable()
 export class CarsEffects {
     constructor(private readonly actions$: Actions,
-                private readonly httpService: HttpService,
-                private store: Store){}
+        private readonly httpService: HttpService,
+        private store: Store) { }
 
-fetchCars$ = createEffect(()=> {
-    return this.actions$.pipe(
-        ofType(carsRequest),
-        switchMap(() => this.httpService.getAllCars().pipe(
-            map((cars) => carsReceived({cars})
-        ))
-    ))
-});
+    fetchCars$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(carsRequest),
+            switchMap(() => this.httpService.getAllCars().pipe(
+                map((cars) => carsReceived({cars: cars})
+                ))
+            ))
+    });
 
 }
 

@@ -1,3 +1,6 @@
-import { CarState } from "app/reducers/cars.reducer";
+import { createSelector } from "@ngrx/store";
 
-export const getAllCars = (state: CarState)=> state.cars;
+export const getAllCars = createSelector(
+    (state: any) => state["carsReducer"],
+    (cars) => cars
+);

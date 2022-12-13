@@ -1,8 +1,7 @@
 <main>
     <h1>Browse through our cards</h1>
     <div class="card-container">
-        <!-- <app-single-card *ngFor="let car of cars"
-        [car]="car"></app-single-card> -->
-        <app-single-card></app-single-card>
+        <app-single-card *ngFor="let car of cars$ | async"
+        [car]="car"></app-single-card>
     </div>
 </main>

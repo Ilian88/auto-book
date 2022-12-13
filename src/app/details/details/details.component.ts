@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { ICar } from 'app/models/ICar';
 import { HttpService } from 'app/services/http.service';
 
@@ -13,7 +14,8 @@ export class DetailsComponent implements OnInit {
   car: ICar | undefined;
 
   constructor(private httpService: HttpService, 
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private store: Store) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
