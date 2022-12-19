@@ -30,6 +30,8 @@ import { CarsEffects } from './effects/cars.effects';
 import { carsReducer } from './reducers/cars.reducer';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
 import { DetailsComponent } from './details/details/details.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminGuard, LoggedInUserGuard, NotLoggedInUserGuard } from './router-guards/auth.guard';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { DetailsComponent } from './details/details/details.component';
     MainComponent,
     SingleCardComponent,
     CreateUpdateDialogueComponent,
-    DetailsComponent
+    DetailsComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
@@ -60,9 +63,10 @@ import { DetailsComponent } from './details/details/details.component';
     MatInputModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'cars/:id', component: DetailsComponent}
+      { path: 'register', component: RegisterComponent, canActivate: [LoggedInUserGuard] },
+      { path: 'login', component: LoginComponent, canActivate: [LoggedInUserGuard] },
+      { path: 'cars/:id', component: DetailsComponent , canActivate: [NotLoggedInUserGuard] },
+      { path: 'admin', component: AdminComponent, canActivate: [NotLoggedInUserGuard, AdminGuard] } 
     ]),
     EffectsModule.forRoot([CarsEffects]),
     BrowserAnimationsModule,

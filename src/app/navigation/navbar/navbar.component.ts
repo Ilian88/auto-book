@@ -1,6 +1,7 @@
 import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { IUser } from 'app/models/IUser';
 import { UserState } from 'app/reducers/auth.reducer';
@@ -22,7 +23,9 @@ export class NavbarComponent implements OnInit {
   readonly logoutButton = 'Logout';
   currentUser$: Observable<IUser> | undefined;
   
-  constructor(private store: Store<UserState>, public dialog: MatDialog) {
+  constructor(private store: Store<UserState>,
+     private router: Router,
+     public dialog: MatDialog) {
    }
 
   ngOnInit(): void {
@@ -32,7 +35,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.store.dispatch(AuthActions.logout())
+    this.store.dispatch(AuthActions.logout());
+    this.router.navigate(["/"]);
   }
 
   openDialog() {
