@@ -5,7 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { IUser } from 'app/models/IUser';
 import { UserState } from 'app/reducers/auth.reducer';
 import { loggedUser } from 'app/selectors/login.selector';
-import { CreateDialogueComponent } from 'app/shared/dialog/create-dialogue/create-dialogue.component';
+import { CreateUpdateDialogueComponent } from 'app/shared/dialog/create-update-dialogue/create-update-dialogue.component';
 import { map, Observable } from 'rxjs';
 import * as AuthActions from '../../actions/auth.actions';
 
@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '75vh';
     dialogConfig.width = '60vw'
-    const dialogRef = this.dialog.open(CreateDialogueComponent, dialogConfig);
+    const dialogRef = this.dialog.open(CreateUpdateDialogueComponent, dialogConfig);
   
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ICar } from 'app/models/ICar';
 import { Observable } from 'rxjs';
 import { IUser } from '../models/IUser';
-import { AUTH_ENDPOINTS, CARS_ENDPOINTS } from './endpoints.type';
+import { AUTH_ENDPOINTS, CREATE_CAR, DELETE_CAR, GET_ALL_CARS, UPDATE_CAR } from './endpoints.type';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,22 @@ export class HttpService {
   }
 
   getAllCars(): Observable<ICar[]> {
-    return this.http.get<ICar[]>(CARS_ENDPOINTS.getAll);
+    return this.http.get<ICar[]>(GET_ALL_CARS);
   }
 
   getCarById(id: string): Observable<ICar> {
-    return this.http.get<ICar>(CARS_ENDPOINTS.getAll + '/' + id)
+    return this.http.get<ICar>(GET_ALL_CARS + '/' + id)
   }
 
+  createCar(car: ICar) {
+    return this.http.post<ICar>(CREATE_CAR, car);
+  }
+ 
+  updateCar(id: number, car: ICar) {
+    return this.http.patch<ICar>(UPDATE_CAR + '/' + id, car);
+  }
+
+  deleteCar(id: number) {
+    return this.http.delete(DELETE_CAR + '/' + id);
+  }
 }

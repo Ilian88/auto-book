@@ -7,6 +7,8 @@ export const AUTH_ENDPOINTS = {
     login: baseUrl + '/users/login'
 }
 
-export const CARS_ENDPOINTS = {
-    getAll: baseUrl + '/cars'
-}
+export const GET_ALL_CARS = baseUrl + '/cars';
+export const CREATE_CAR = baseUrl + '/cars/create';
+export const UPDATE_CAR = GET_ALL_CARS + '/update';
+export const DELETE_CAR = GET_ALL_CARS + '/delete';
+

@@ -23,7 +23,7 @@ import { authReducer } from './reducers/auth.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
-import { CreateDialogueComponent } from './shared/dialog/create-dialogue/create-dialogue.component';
+import { CreateUpdateDialogueComponent } from './shared/dialog/create-update-dialogue/create-update-dialogue.component';
 import {MatInputModule} from '@angular/material/input'; 
 import { EffectsModule } from '@ngrx/effects';
 import { CarsEffects } from './effects/cars.effects';
@@ -44,7 +44,7 @@ import { DetailsComponent } from './details/details/details.component';
     LoginComponent,
     MainComponent,
     SingleCardComponent,
-    CreateDialogueComponent,
+    CreateUpdateDialogueComponent,
     DetailsComponent
   ],
   imports: [

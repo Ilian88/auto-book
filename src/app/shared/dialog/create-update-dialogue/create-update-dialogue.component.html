@@ -15,9 +15,9 @@
           </tr></table>
           <table class="input-full-width" cellspacing="0"><tr>
             <td><mat-form-field>
-              <mat-label>Engine displacement and type</mat-label>
-              <input matInput formControlName="engine">
-              <mat-error *ngIf="createCardFormGroup.get('engine').status === 'INVALID'">Engine must be between 1 and 15 symbols</mat-error>
+              <mat-label>Engine displacement</mat-label>
+              <input matInput formControlName="displacement">
+              <mat-error *ngIf="createCardFormGroup.get('displacement').status === 'INVALID'">Engine must be between 1 and 15 symbols</mat-error>
             </mat-form-field></td>
             <td><mat-form-field>
               <mat-label>Fuel consumption</mat-label>
@@ -39,5 +39,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="onSubmit()" [mat-dialog-close]="createCardFormGroup.status === 'VALID'" [disabled]="createCardFormGroup.status === 'INVALID'">Create</button>
+  <button mat-button (click)="onSubmit()" [mat-dialog-close]="createCardFormGroup.status === 'VALID'" [disabled]="createCardFormGroup.status === 'INVALID'">Submit</button>
 </mat-dialog-actions>

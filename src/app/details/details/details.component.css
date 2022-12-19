@@ -1,7 +1,7 @@
 .single-card {
     max-width: 700px;
     height: 70vh;
-    overflow: scroll;
+    
 }
 
 .container {
@@ -11,18 +11,20 @@
 }
 
 mat-card { 
-    display: flex;
-    flex-wrap: wrap;
-    
-}
+    width: 60%;
+ }
 
 .mat-card-header {
     flex: 1
 }
 
+mat-card-content {
+    overflow: scroll;
+}
+
 .mat-card-image {
     width: 20rem;
-    height: 15rem;
+    height: 10rem;
     padding-right: 1rem;
     padding-top: 1rem;
     flex: 1 
