@@ -1,0 +1,44 @@
+.container {
+    display: grid;
+    margin: auto;
+    width: 55vw;
+    height: 60vh;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    border: 1px black solid;
+    border-radius: 4px;
+}
+
+h2 {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 2rem;
+}
+
+.mat-form-field {
+    max-width: 20rem;
+}
+
+.selectors {
+    max-width: 25rem;
+}
+
+.profilePic {
+    display: flex;
+    justify-content: end;
+}
+
+img {
+    max-width: 15rem;
+    max-height: 14rem;
+}
+
+button {
+    width: 7rem;
+}

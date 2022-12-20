@@ -32,7 +32,7 @@ import { AuthInterceptor } from './interceptor/auth-interceptor';
 import { DetailsComponent } from './details/details/details.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard, LoggedInUserGuard, NotLoggedInUserGuard } from './router-guards/auth.guard';
-
+import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -61,10 +61,11 @@ import { AdminGuard, LoggedInUserGuard, NotLoggedInUserGuard } from './router-gu
     HttpClientModule,
     MatDialogModule,
     MatInputModule,
+    MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'register', component: RegisterComponent, canActivate: [LoggedInUserGuard] },
-      { path: 'login', component: LoginComponent, canActivate: [LoggedInUserGuard] },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'cars/:id', component: DetailsComponent , canActivate: [NotLoggedInUserGuard] },
       { path: 'admin', component: AdminComponent, canActivate: [NotLoggedInUserGuard, AdminGuard] } 
     ]),

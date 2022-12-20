@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from 'app/models/IUser';
+import { HttpService } from 'app/services/http.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  users: IUser[] | undefined;
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit(): void {
+    this.http.getAllUsers().subscribe(users => this.users = users);
   }
 
 }

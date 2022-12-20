@@ -1,1 +1,28 @@
-<p>admin works!</p>
+<h2>Admin Panel</h2>
+<div class="container">
+  <div class="userProfile">
+    <div class="selectors">
+    <mat-form-field appearance="fill">
+      <mat-label>Users</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let user of users" [value]="user.username">
+          {{user.username}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Roles</mat-label>
+      <mat-select>
+        <mat-option>ADMIN</mat-option>
+        <mat-option>USER</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+    <button mat-fab extended color="primary">
+        Submit
+      </button>
+  </div>
+  <div class="profilePic">
+    <img src="https://i.stack.imgur.com/YQu5k.png" alt="Profile pic">
+  </div>
+</div>
