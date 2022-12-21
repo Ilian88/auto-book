@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { UserState } from '../../reducers/auth.reducer';
 import { HttpService } from '../../services/http.service';
 import * as AuthActions from '../../actions/auth.actions'
+import { NotificationService } from 'app/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ import * as AuthActions from '../../actions/auth.actions'
 export class LoginComponent implements OnInit {
 
   constructor( private http: HttpService, private router: Router ,
-          private store: Store<UserState>) { }
+          private store: Store<UserState>,
+          private notificationService: NotificationService) { }
 
   error: any;
   loginGroup: any;
@@ -33,12 +35,11 @@ export class LoginComponent implements OnInit {
         this.store.dispatch(AuthActions.login({user: {...user, password: this.loginGroup.get('password').value}}))
         this.router.navigate(['/'])
       },
-      error: (err) => {
-        alert(err);
-        this.error = err;
+      error: (error) => {
+        this.notificationService.createErrorMessage(error.message)
         this.loginGroup.reset();
       }
-    });
+    })
   }
 
 }
