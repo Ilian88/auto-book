@@ -51,4 +51,5 @@ export class DetailsComponent implements OnInit {
   isOwner() {
     return this.car?.owner === this.currentUser?.username;
   }
+
 }

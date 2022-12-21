@@ -8,6 +8,7 @@ export const AUTH_ENDPOINTS = {
 }
 
 export const GET_ALL_USERS = baseUrl + '/users'
+export const CHANGE_USER_ROLE = baseUrl + '/users/admin'
 export const GET_ALL_CARS = baseUrl + '/cars';
 export const CREATE_CAR = baseUrl + '/cars/create';
 export const UPDATE_CAR = GET_ALL_CARS + '/update';

@@ -4,7 +4,7 @@
     <div class="selectors">
     <mat-form-field appearance="fill">
       <mat-label>Users</mat-label>
-      <mat-select>
+      <mat-select [formControl]="usersForm">
         <mat-option *ngFor="let user of users" [value]="user.username">
           {{user.username}}
         </mat-option>
@@ -12,13 +12,14 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Roles</mat-label>
-      <mat-select>
-        <mat-option>ADMIN</mat-option>
-        <mat-option>USER</mat-option>
+      <mat-select [formControl]="usersRolesForm">
+        <mat-option value="ADMIN">ADMIN</mat-option>
+        <mat-option value="USER">USER</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
-    <button mat-fab extended color="primary">
+    <button [disabled]="!(usersForm.dirty && usersRolesForm.dirty)" mat-fab extended color="primary"
+    (click)="changeUserRole()">
         Submit
       </button>
   </div>

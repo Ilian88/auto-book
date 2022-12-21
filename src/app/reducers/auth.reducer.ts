@@ -22,7 +22,7 @@ export const authReducer = createReducer(
         }
     }),
     on(AuthActions.logout, (_state, _action)=> {
-        return initialState
+        return initialState;
     })
 );
 
