@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors  } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'app/notification/notification.service';
 import { IUser } from '../../models/IUser';
 import {HttpService} from '../../services/http.service'
 @Component({
@@ -11,7 +12,8 @@ import {HttpService} from '../../services/http.service'
 })
 export class RegisterComponent implements OnInit {
   
-  constructor(private authService: HttpService, private router: Router) { }
+  constructor(private authService: HttpService, private router: Router,
+    private notificationService: NotificationService) { }
 
   registerGroup: any;
   error: any;
@@ -35,16 +37,12 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  log(registerForm: UntypedFormGroup) {
-    console.log(this.error);
-  }
-
   registerUser() {
     this.authService.register(this.registerGroup.value)
         .subscribe({
           next: () => this.router.navigate(['/login']),
-          error: (err) => {
-            this.error = err;
+          error: (error) => {
+            this.notificationService.createErrorMessage(error.error);
             this.registerGroup.reset();
           }
         });

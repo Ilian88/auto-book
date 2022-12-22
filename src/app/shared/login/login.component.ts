@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/'])
       },
       error: (error) => {
-        this.notificationService.createErrorMessage(error.message)
+        this.notificationService.createErrorMessage(error.error);
         this.loginGroup.reset();
       }
     })

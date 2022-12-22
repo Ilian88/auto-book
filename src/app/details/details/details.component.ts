@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -21,6 +21,7 @@ export class DetailsComponent implements OnInit {
   constructor(private httpService: HttpService, 
               private activatedRoute: ActivatedRoute,
               private router: Router,
+              private changeDetector: ChangeDetectorRef,
               private store: Store,
               public dialog: MatDialog) { }
 
@@ -37,7 +38,10 @@ export class DetailsComponent implements OnInit {
     dialogConfig.data = {car: this.car};
     const dialogRef = this.dialog.open(CreateUpdateDialogueComponent, dialogConfig);
     
-    // dialogRef.afterClosed().subscribe(result => window.location.reload());
+    dialogRef.afterClosed().subscribe(() => {
+      // // this.router.navigate(['/']);
+      this.changeDetector.detectChanges();
+    })
   } 
 
   onDelete() {

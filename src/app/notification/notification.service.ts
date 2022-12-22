@@ -10,7 +10,7 @@ export class NotificationService {
   constructor() { }
 
   createErrorMessage(errorMessage: string) {
-    this._subject.next(errorMessage);
+    this._subject.next(JSON.stringify(errorMessage));
   }
 
   getError() {

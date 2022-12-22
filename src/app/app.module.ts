@@ -70,7 +70,7 @@ import { ErrorComponentComponent } from './error/error-component/error-component
       { path: 'login', component: LoginComponent },
       { path: 'cars/:id', component: DetailsComponent , canActivate: [NotLoggedInUserGuard] },
       { path: 'admin', component: AdminComponent, canActivate: [NotLoggedInUserGuard, AdminGuard] } 
-    ]),
+    ], {onSameUrlNavigation: 'reload'}),
     EffectsModule.forRoot([CarsEffects]),
     BrowserAnimationsModule,
     StoreModule.forRoot({login: authReducer, carsReducer: carsReducer}),
