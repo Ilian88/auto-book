@@ -1,12 +1,21 @@
 .single-card {
-    max-width: 300px;
+    max-width: 50rem;
     margin-bottom: 8px;
+    background-color: beige;
   }
 
 .mat-card-actions :first-child {
     background-color: greenyellow;
 }
 
-.mat-card-actions :nth-child(2) {
-    background-color: red;
+.mat-card-actions {
+    margin-left: 0;
+}
+
+.owner {
+    font-style: italic;
+}
+
+mat-card-title {
+    margin-right: 5rem;
 }

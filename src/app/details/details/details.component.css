@@ -1,35 +1,49 @@
 .single-card {
     max-width: 700px;
-    height: 70vh;
-    
+    height: 57vh;
+    background-color: beige;
+    box-shadow: 10px 5px 5px rgb(163, 163, 163);
+}
+
+h3 {
+    font-weight: bold;
+    padding-top: 1rem;
+    text-align: center;
 }
 
 .container {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
+    background-color: bisque;
+    height: 85vh;
+  
 }
 
 mat-card { 
+    display: flex;
+    flex-direction: column;
     width: 60%;
+    margin: auto;
  }
-
-.mat-card-header {
-    flex: 1
-}
 
 mat-card-content {
     overflow: scroll;
 }
 
 .mat-card-image {
-    width: 20rem;
-    height: 10rem;
+    float: right;
+    width: 15rem;
+    height: 12rem;
     padding-right: 1rem;
     padding-top: 1rem;
-    flex: 1 
+    /* flex: 1  */
 }
 
-.mat-card-actions {
-    margin-bottom: 2px;
+/* mat-card-actions {
+    padding-bottom: 1rem;
+} */
+
+.contentAndButtons {
+    height: 70%;
+   float: none;
+   display: flex;
+   flex-direction: column;
 }

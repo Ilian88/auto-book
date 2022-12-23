@@ -6,6 +6,7 @@ import { select, Store } from '@ngrx/store';
 import { IUser } from 'app/models/IUser';
 import { UserState } from 'app/reducers/auth.reducer';
 import { loggedUser } from 'app/selectors/login.selector';
+import { HttpService } from 'app/services/http.service';
 import { CreateUpdateDialogueComponent } from 'app/shared/dialog/create-update-dialogue/create-update-dialogue.component';
 import { map, Observable } from 'rxjs';
 import * as AuthActions from '../../actions/auth.actions';
@@ -25,7 +26,8 @@ export class NavbarComponent implements OnInit {
   
   constructor(private store: Store<UserState>,
      private router: Router,
-     public dialog: MatDialog) {
+     public dialog: MatDialog,
+     private http: HttpService) {
    }
 
   ngOnInit(): void {
@@ -46,6 +48,8 @@ export class NavbarComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateUpdateDialogueComponent, dialogConfig);
   
     dialogRef.afterClosed().subscribe(result => {
+      this.http.getAllCars().subscribe();
+      this.router.navigate(['']);
       console.log(`Dialog result: ${result}`);
     });
   }

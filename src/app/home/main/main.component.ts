@@ -13,19 +13,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  // cars: ICar[] = [];
-  cars$: Observable<ICar[]>;
+  cars: ICar[] = [];
+  cars$: Observable<ICar[]> | undefined;
 
   constructor(private store: Store<CarState>,
     private http: HttpService) { 
-    this.cars$ = this.http.getAllCars();
-    // this.cars$ = this.store.pipe(select(getAllCars));
+      // this.store.dispatch(carsRequest());
+    // this.cars$ = this.http.getAllCars();
+    // this.store.select((getAllCars)).pipe(cars => this.cars$ = cars);
   }
 
   ngOnInit(): void {
-    this.store.dispatch(carsRequest());
-
-    // this.store.select(getAllCars).subscribe(cars => this.cars = cars);
+    // this.store.dispatch(carsRequest());
+    this.cars$ = this.http.getAllCars();
+    // this.store.select(getAllCars).pipe(cars => this.cars$ = cars);
   }
 
 }

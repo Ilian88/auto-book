@@ -1,5 +1,7 @@
 main {
     width: 100%;
+    background-color: bisque;
+    height: 85%;
     overflow: scroll;
 }
 

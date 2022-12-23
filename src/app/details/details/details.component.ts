@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ICar } from 'app/models/ICar';
 import { IUser } from 'app/models/IUser';
+import { NotificationService } from 'app/notification/notification.service';
 import { loggedUser } from 'app/selectors/login.selector';
 import { HttpService } from 'app/services/http.service';
 import { CreateUpdateDialogueComponent } from 'app/shared/dialog/create-update-dialogue/create-update-dialogue.component';
@@ -18,12 +19,13 @@ export class DetailsComponent implements OnInit {
   car: ICar | undefined;
   currentUser: IUser | undefined;
 
-  constructor(private httpService: HttpService, 
-              private activatedRoute: ActivatedRoute,
-              private router: Router,
-              private changeDetector: ChangeDetectorRef,
-              private store: Store,
-              public dialog: MatDialog) { }
+  constructor(private httpService: HttpService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private changeDetector: ChangeDetectorRef,
+    private store: Store,
+    private notificationService: NotificationService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -35,20 +37,21 @@ export class DetailsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '75vh';
     dialogConfig.width = '60vw';
-    dialogConfig.data = {car: this.car};
+    dialogConfig.data = { car: this.car };
     const dialogRef = this.dialog.open(CreateUpdateDialogueComponent, dialogConfig);
-    
+
     dialogRef.afterClosed().subscribe(() => {
       // // this.router.navigate(['/']);
       this.changeDetector.detectChanges();
     })
-  } 
+  }
 
   onDelete() {
     if (confirm("Are you sure you want to delete this item?")) {
-      this.httpService.deleteCar((this.car as ICar).id).subscribe(
-             ()=> this.router.navigate([''])
-        );
+      this.httpService.deleteCar((this.car as ICar).id).subscribe({
+        next: () => this.router.navigate(['']),
+        error: (error) => this.notificationService.createErrorMessage(error.error)
+      });
     }
   }
 

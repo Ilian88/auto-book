@@ -2,6 +2,11 @@ nav {
     background-color: rgb(193, 193, 193);
 }
 
+span {
+    font-style: italic;
+    color: rgb(167, 98, 98);
+    text-decoration: underline;
+}
 
 header {
     display: flex;
@@ -29,5 +34,5 @@ app-nav-buttons {
 }
 
 button {
-    color: rgba(233, 6, 38, 0.77);
+    color: rgba(183, 99, 4, 0.77);
 }

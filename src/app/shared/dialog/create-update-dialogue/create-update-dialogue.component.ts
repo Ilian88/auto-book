@@ -42,6 +42,9 @@ export class CreateUpdateDialogueComponent implements OnInit {
       this.data 
             ? this.http.updateCar(this.data.car.id, this.createCardFormGroup.value).subscribe({
               next: ()=> {
+                let id = this.data.car.id
+                this.http.getCarById(id);
+                this.router.navigate(['cars', id])
               },
               error: (error)=>  { 
                 this.notificationService.createErrorMessage(error.error)

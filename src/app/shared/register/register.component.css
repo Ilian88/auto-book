@@ -1,5 +1,8 @@
 main {
     position: relative;
+    background: cornsilk;
+    padding-top: 2rem;
+    height: 79vh;
 }
 
 h2 {
@@ -46,7 +49,7 @@ input[type="email"] {
 .submitBtn {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 button {
@@ -70,7 +73,7 @@ input.ng-invalid.ng-touched {
     outline: 2px solid red
 } 
 
-.notification {
+/* .notification {
     position: absolute;
     width: 20rem;
     height: 7rem;
@@ -79,4 +82,4 @@ input.ng-invalid.ng-touched {
     z-index: 1000;
     background-color: aquamarine;
     padding: 2rem 1rem;
-}
+} */

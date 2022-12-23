@@ -31,7 +31,7 @@ import { carsReducer } from './reducers/cars.reducer';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
 import { DetailsComponent } from './details/details/details.component';
 import { AdminComponent } from './admin/admin.component';
-import { AdminGuard, LoggedInUserGuard, NotLoggedInUserGuard } from './router-guards/auth.guard';
+import { AdminGuard, NotLoggedInUserGuard } from './router-guards/auth.guard';
 import {MatSelectModule} from '@angular/material/select';
 import { ErrorComponentComponent } from './error/error-component/error-component.component'; 
 
